@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/connection', [ConnectionController::class, 'showConnection']);
-Route::post('/connection', [ConnectionController::class, 'connection'])->name('connection');
+Route::get('/', [ConnectionController::class, 'showConnection']);
+Route::post('/', [ConnectionController::class, 'connection'])->name('connection');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
