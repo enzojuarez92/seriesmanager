@@ -6,7 +6,7 @@
                   <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Serie</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form method="POST" action="{{ route('store') }}" class="border border-1 rounded p-3">
+              <form method="POST" action="{{ route('serie.store') }}" class="border border-1 rounded p-3">
                   @csrf
                   <div class="modal-body">
                       <div class="row mb-3">

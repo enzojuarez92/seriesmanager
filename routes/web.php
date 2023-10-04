@@ -26,7 +26,7 @@ Route::post('/connection', [ConnectionController::class, 'connection'])->name('c
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::post('/', [SerieController::class, 'store'])->name('store');
-Route::delete('/{serie}', [SerieController::class, 'destroy'])->name('destroy');
-Route::post('/{serie}', [SerieController::class, 'anular'])->name('anular');
-Route::put('/', [SerieController::class, 'update'])->name('update');
+Route::delete('/destroy', [SerieController::class, 'destroy'])->name('serie.destroy');
+Route::post('/store', [SerieController::class, 'store'])->name('serie.store');
+Route::post('/anular', [SerieController::class, 'anular'])->name('serie.anular');
+Route::put('/destroy', [SerieController::class, 'update'])->name('serie.update');

@@ -6,9 +6,10 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Serie</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('destroy', $serie) }}" method="POST">
+            <form action="{{ route('serie.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
+                <input type="hidden" name="id" value="{{$serie->id}}">
                 <div class="modal-body">
                     <h3 class="text-primary text-center">Eliminar {{ $title }}</h3>
                     <div class="text-center">

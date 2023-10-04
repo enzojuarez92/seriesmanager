@@ -6,8 +6,9 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Anular Serie</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('anular', $serie) }}" method="POST">
+            <form action="{{ route('serie.anular') }}" method="POST">
                 @csrf
+                <input type="hidden" name="id" value="{{$serie->id}}">
                 <div class="modal-body">
                     @if ($serie->estado == 'AC')
                         <h3 class="text-primary text-center">Anular serie {{ $title }}</h3>

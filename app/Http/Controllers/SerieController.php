@@ -44,10 +44,9 @@ class SerieController extends Controller
         }
     }
 
-    public function destroy(Serie $serie)
+    public function destroy(Request $request)
     {
         $config = Cache::get('database_config');
-        dd($config);
 
         Config::set('database.connections.dynamic', $config);
 
@@ -55,6 +54,8 @@ class SerieController extends Controller
         DB::setDefaultConnection('dynamic');
 
         try {
+            $serie = Serie::find($request->id);
+
             $serie->delete();
 
             flash('La serie: ' . $serie->titulo . ' se elimino con exito!')->success();
@@ -103,7 +104,7 @@ class SerieController extends Controller
         }
     }
 
-    public function anular(Serie $serie)
+    public function anular(Request $request)
     {
         $config = Cache::get('database_config');
 
@@ -113,6 +114,8 @@ class SerieController extends Controller
         DB::setDefaultConnection('dynamic');
 
         try {
+            $serie = Serie::find($request->id);
+            
             if ($serie->estado == 'AC') {
                 $serie->estado = 'AN';
                 flash('La serie: ' . $serie->titulo . ' ah sido anulada!')->success();
